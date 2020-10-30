@@ -8,7 +8,9 @@ COMO EQUIPO DECIDIMOS HACER LAS PRUEBAS UNITARIAS DE NUESTROS MÉTODOS RELIZADOS
 
 
 
-class TestUno(unittest.TestCase):
+
+    class TestUno(unittest.TestCase):
+
     def agregarInsumo(self):
         u=Insumos(
             1,"nombre",1990,"descripcion",100
