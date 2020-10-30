@@ -1,0 +1,75 @@
+ {% extends "web/plantilla.html" %}
+{% load static %}
+
+
+  {%  block estilos %}
+      <link rel="stylesheet" href="{% static 'css/ubicacion.css' %}">
+
+  {% endblock estilos %}
+
+
+    <div id="sidebar" >
+        <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
+        <ul>
+            <li>
+                <img src="{% static 'img/005-car service.png' %}" alt="logo" class="logo">
+            </li>
+            <h3>Páginas</h3>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="quienesSomos.html">Quienes Somos</a></li>
+              <li><a href="ubicacion.html">Ubicación</a></li>
+              <li><a href="formulario.html">Registro</a></li>
+              <li><a href="formulario2.html">Insumos</a></li>
+              <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </ul>
+    </div>
+
+   {%  block contenido %}
+     <div id="contenido">
+        <div id="boton-menu">
+          <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+        </div>  
+
+        <div class="section">
+            <h1>Sucursal Principal</h1>
+            <iframe class="sucural-uno"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2392.612309262991!2d-70.90811728429512!3d-53.153052063004814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdb2648047325419%3A0x5a0fb86a4a31ef5!2sAv.%20Espa%C3%B1a%20249%2C%20Punta%20Arenas%2C%20Magallanes%20y%20la%20Ant%C3%A1rtica%20Chilena!5e0!3m2!1ses-419!2scl!4v1598761661817!5m2!1ses-419!2scl"
+                 frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+                tabindex="0">
+            </iframe>
+                <div id="aside">
+                    <h2>
+                        <b>Sucursal Principal</b>
+                        <ol class="sucursales">
+                            <h2>Av España 249 , Punta Arenas</h2>
+                        </ol> 
+                    </h2>
+                </div>
+        
+        </div>
+           
+        <div class="section2">
+            
+                <h1><b>Segunda Sucursal</b></h1>
+                <iframe  class="sucursal-dos" 
+            
+          
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.2350154614182!2d-70.58953548481868!3d-33.54726970987375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d1fbe1cd7cdb%3A0xde262bacfc52975d!2sDeja%20vu%20bar%20%26%20disco!5e0!3m2!1ses!2scl!4v1599867639001!5m2!1ses!2scl"
+                  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" 
+                tabindex="0"></iframe>
+             <div class="aside2">
+                 <h2>
+                   <b>Segunda Sucursal</b>
+                 </h2> 
+                 <h2>
+                    <b>   Trinidad Ote 45 , La Florida , Región Metropolitana</b>       
+                 </h2>
+             </div>
+        </div>
+    </div>
+
+
+          
+   {% endblock contenido %}

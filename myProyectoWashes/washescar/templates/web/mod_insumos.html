@@ -1,0 +1,87 @@
+﻿ {% extends "web/plantilla.html" %}
+{% load static %}
+
+    {%  block estilos %}
+      <link rel="stylesheet" href="{% static 'css/formulario2.css' %}">
+    {% endblock estilos %}
+
+    
+    {%  block contenido %}
+    <script>
+        function ir() {
+            location.href='/lista_insumos/';
+        }
+    </script>
+      <div class="contenido" >
+        <div id="boton-menu">
+            <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+          </div>
+      <h1>Modificacion de Insumos</h1>
+         <form action="{% url 'MODIFICAR' %}" method="POST">
+          {% csrf_token %}
+           <table border="0" class="formulario">
+           
+            <tr>
+                <td>ID Insumo:</td>
+                <td>
+                    <input type="number"   maxlength="120" placeholder="Ingrese id del Producto" name="txtid" id="txtid" value="{{insumo.id}}" disabled required>
+                </td>  
+            </tr>   
+            <!--NOMBRE PRODUCTO-->
+             <tr>
+                 <td>Nombre Insumo:</td>
+                 <td>
+                     <input type="text" minlength="3" maxlength="120" placeholder="Ingrese Nombre del Producto" name="txtNombreProducto" id="txtNombreProducto" value="{{insumo.nombre}}" required>
+                 </td>  
+             </tr>   
+             
+             <!--PRECIO-->
+             <tr>
+                 <td>Precio:</td>
+                 <td>
+                     <input type="text" min="1" placeholder="Ingrese precio del producto ej 1999)"  name="txtPrecio" id="txtPrecio" value="{{insumo.precio}}" required>
+                 </td>
+             </tr>
+
+             <!--DESCRIPCION-->
+             <tr>
+                 <td>Descripcion::</td>
+                 <td>
+                     <input type="text" placeholder="Ingrese Descripcion" minlength="3" maxlength="200" name="txtDescripcion" id="txtDescripcion" value="{{insumo.descripcion}}">
+                 </td>
+             </tr>
+
+            <tr>
+                 <td>Stock:</td>
+                 <td>
+                     <input type="number" min="1" placeholder="Ingrese Stock"  name="txtstock" id="txtstock"  value="{{insumo.stock}}" required>
+                 </td>
+             </tr>
+            
+             <tr>
+                 <td>
+                    <input type="submit" value="Modificar" class="btnGrabar">
+                    <input type="button" onclick="ir()" value="ADM INSUMOS" class="btnReset">
+
+                 </td>
+             </tr>
+
+           
+
+             <!---->
+          </table>
+          <div style="background-color: red; color: white; text-align: center; font-size: 10px; position: relative;">
+                    <h2>{{msg}}</h2>
+                </div>
+         </form>
+
+        
+            
+             
+
+      </div>
+
+  </div>
+{% endblock contenido %}
+  
+

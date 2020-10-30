@@ -1,0 +1,60 @@
+ {% extends "web/plantilla.html" %}
+  {% load static %}
+ 
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock estilos %}
+
+
+
+ {% block contenido %}
+        <div class="login">
+            <form action="{% url 'LOG' %}" method="POST" class="formularioRegistro" style=" background-color:teal; color: white;">
+                {% csrf_token %}
+
+                <h1 style="text-align: center;">Iniciar Sesión</h1>
+                <table  id="menu">
+                
+                
+                    <tr>
+                        
+                        <td>
+                            <input type="text" class="form_inicio" name="usuario" id="usuario" placeholder="Nombre de Usuario" required>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        
+
+                        <td>
+                            <input type="password" class="form_inicio" name="passwd" placeholder="Clave" name="" id="clave" required>
+                        </td>
+                    
+                    </tr>
+                   </div>
+                    <tr>
+                        <td>
+                            <button onclick="" type="submit" value="validar" class="btnLogin"> Ingresar </button>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+
+                </table>
+                <div style="background-color: red; color: white; text-align: center; font-size: 10px; position: relative;">
+                    <h2>{{msg}}</h2>
+                </div>
+            </form>
+           
+            
+            
+         
+                
+        </div>
+       
+     
+       
+      
+ {% endblock contenido %}

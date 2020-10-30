@@ -1,0 +1,103 @@
+﻿ {% extends "web/plantilla.html" %}
+{% load static %}
+
+    {% block estilos %}
+          <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
+    {% endblock estilos %}
+
+    
+  
+    
+    <!---CONTENIDO-->
+
+   {% block contenido %}
+     <div class="contenido" >
+            <div id="boton-menu">
+                    <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+            </div>
+        <h1>Formulario de Registro</h1>
+
+        <form action="" method="POST" onsubmit="return validarFormulario()" >
+         {% csrf_token %}
+            <table border="0" class="formulario">
+            
+
+              <!--NOMBRE-->
+               <tr>
+                   <td>Nombre:</td>
+                   <td>
+                       <input type="text" onkeypress="return sololetras2(event)" minlength="3" maxlength="80" placeholder="Nombre" name="txtNombre" id="txtNombre"  required>
+                   </td>  
+               </tr>   
+               
+               <!--APELLIDO-->
+               <tr>
+                   <td>Apellido:</td>
+                   <td>
+                       <input type="text" onkeypress="return sololetras2(event)" minlength="3" maxlength="80" placeholder="Apellido"  name="txtApellido" id="txtApellido" required>
+                   </td>
+               </tr>
+
+
+               <!--CORREO-->
+               <tr>
+                   <td>Correo:</td>
+                   <td>
+                       <input type="email" placeholder="Ingresa Tu Correo" name="txtEmail" id="txtEmail" required>
+                   </td>
+               </tr>
+
+               <!--NOMBRE USUARIO-->
+               <tr>
+                   <td>Nombre de Usuario:</td>
+                   <td>
+                       <input type="text" onkeypress="return noespacios(event)" minlength="8" placeholder="Nombre de Usuario" name="txtNombreUsuario" id="txtNombreUsuario" required>
+                      
+                   </td>
+               </tr>
+
+               <!--CONTRASEÑA-->
+               <tr>
+                   <td>Contraseña:</td>
+                   <td>
+                       <input type="password" onkeypress="return noespacios(event)" minlength="8" placeholder="Ingresar Contraseña" id="txtContrasena" name="txtContrasena" required>
+                   </td>
+               </tr>
+
+               <tr>
+                <td>Confirmar Contraseña:</td>
+                <td>
+                    <input type="password" onkeypress="return noespacios(event)"  onkeyup="return confirmarcontrasenia(event)" onpaste="return false" minlength="8" placeholder="Confirme Contraseña" id="txtContrasena2" name="txtContrasena2" required>
+                    
+                </td>
+            </tr>
+               <tr>
+                   <td>
+                       
+                       
+                       <input type="submit" onclick="validarFormulario()" value="REGISTRAR" class="btnGrabar">
+                       <input type="reset" value="LIMPIAR" class="btnReset">
+                   </td>
+               </tr>
+
+             
+
+               <!---->
+          </table>
+          
+      </form>
+    <div>
+        <p style="background-color: red; color: white; font-size: 20px;" id="Confirmacion"></p>
+    </div>
+    
+      
+    </div>
+    
+   {% endblock contenido %}
+  {% block js %}
+    <script src="{% static 'js/formulario.js' %}" charset="UTF-8"></script>
+
+   {% endblock %}
+
+    
+    

@@ -1,0 +1,78 @@
+ {% extends "web/plantilla.html" %}
+
+  {% load static %}
+
+    <title>Quienes Somos</title>
+   {% block estilos %}
+       <link rel="stylesheet" href="{% static 'css/quienesSomos.css' %}">
+   {% endblock estilos %}
+
+
+    <div id="sidebar" >
+        <a href="#" class="boton-cerrar" onclick="ocultar()">&times;</a>
+        <ul>
+            <li>
+                <img src="{% static 'img/005-car service.png' %}" alt="logo" class="logo">
+            </li>
+            <li><a href="#nuestraVision" onclick="ocultar()">Visión</a></li>
+            <li><a href="#nuestraMision" onclick="ocultar()">Misión</a></li>
+            <h3>Páginas</h3>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="quienesSomos.html">Quienes Somos</a></li>
+              <li><a href="ubicacion.html">Ubicación</a></li>
+              <li><a href="formulario.html">Registro</a></li>
+              <li><a href="formulario2.html">Insumos</a></li>
+              <li><a href="galeria.html">Galeria</a></li>
+            </ul>
+        </ul>
+    </div>
+
+   {%  block contenido %}
+       <div id="contenido">
+        <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+        <section id="somos">
+
+        {% for item in mv  %}
+           <div id="nuestraVision">
+          
+               <img src="{% static 'img/sol.jpg' %}" class="logoContenido" alt="" height="400" width="600">
+            
+               <p> 
+              
+                   <i>
+                     <h1>Nuestra Visión</h1>  
+                      {{item.vision}}
+                   <br>
+                   
+                   </i>
+                   
+                </p>
+            </div>
+            
+           <section class="video">
+              <video src="{% static 'video/WashesCar.mp4' %}" controls ></video>
+            </section>
+
+        </section>
+
+            <div id="nuestraMision">
+              
+              <p>
+                <i>
+                <h1>Nuestra Misión</h1>
+                  {{item.mision}}
+                    
+                  <br>
+                </i>
+              </p>
+            </div>
+
+           
+
+        {% endfor %}
+           
+      </div>
+
+    
+   {% endblock contenido %}

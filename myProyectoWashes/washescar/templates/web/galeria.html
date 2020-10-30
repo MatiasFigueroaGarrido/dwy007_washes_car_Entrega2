@@ -1,0 +1,59 @@
+ {% extends "web/plantilla.html" %}
+
+    {% load static %}
+
+
+
+    {% block estilos %}
+      <link rel="stylesheet" href="{% static 'css/galeria.css' %}">
+       <link rel="stylesheet" href="{% static 'dist/css/lightbox.min.css' %}">
+    {% endblock estilos %}
+
+  
+   
+
+
+
+
+
+
+  {%block contenido %}
+  <div id="contenido">
+        <div id="boton-menu">
+          <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+        </div>
+  
+        <div class="galeria">
+            <h1><b>Galeria</b></h1>
+            <div class="linea"></div>
+            <div class="contenedor-imagenes">
+                
+
+                {% for item in imagen  %}
+
+                <div class="imagen">
+                    <img src={{item.imagenGaleria.url}} alt="">
+                    <a href={{item.imagenGaleria.url}} data-lightbox="img" data-title={{item.mensaje}}>
+                        <div class="overlay">
+                          {{item.overlay}}
+
+                        </div>
+                    </a>
+                </div>
+                
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+{% endblock contenido %}
+
+    
+   {% block js %}
+    <script src="{% static 'js/galeria.js' %}" charset="UTF-8"></script>
+    <script src="{% static 'dist/js/lightbox-plus-jquery.min.js' %}"></script>
+
+    {% endblock %}
+    
+    

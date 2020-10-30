@@ -1,0 +1,111 @@
+ {% extends "web/plantilla.html" %}
+  {% load static %}
+ 
+
+      {% block contenido %}
+         <div id="contenido">
+         <span id="abrir" class="abrir-cerrar" href="javascript:void(0)" onclick="mostrar()">&#9776;</span><span id="cerrar" class="abrir-cerrar" href="#" onclick="ocultar()">&#9776;</span>
+        
+          <div id="contenedor_carousel">
+               <div class="carousel">
+                    <div class="wrap">
+                      <ul>
+                          
+                             {% for item in autos  %}
+                                 <li ><img src="{{item.img.url}}" alt=""></li>
+
+                            {% endfor %}
+
+                     </ul>
+                  </div>
+              </div>
+         </div>
+
+        <div class="bienvenida">
+            <b>
+                <h1>Bienvenidos - Bienvenidas</h1></br>
+                <p>Estamos ubicados a lo largo del país en nuestras distintas sucursales</p></br>
+                <p>Registrate <em ><a href="formulario.html">aquí</a></em> para solicitar o reservar nuestros servicios</p><br>
+                <p>Visitanos y no esperes más</p></br>
+            </b>
+
+            <div class="info_pandemia">
+                <p><strong> Informativo covid-19:</strong></p><br>
+                <p> Por la presente situacion de emergencia sanitaria, en nuestra mision de colaborar ha evitar la propagación
+                     de la enfermedad entregamos todos nuestros lavado con desinfección de alta calidad sin coste añadido.<br>
+                     Todos nuestros trabajadores cumplen con todas las normas sanitarias establecidas por la autoridad, por lo que le recordamos
+                     que al momento de interacturar con nuestros colaboradores debe llevar puesta su mascarilla.
+                </p>
+            </div>
+
+        </div><br>
+        <section id="servicios">
+          <h1>Nuestros Servicios</h1>
+        <div class="servicio" >
+            <h2>Lavado de autos de calidad</h2><br>
+            <img src="{% static 'img/lavadodecalidad.jpg' %}"><br>
+            <p>Ofrecemos un lavado de auto de la más alta calidad para todos nuestros clientes
+                      por lo que contamos con gente especializada </br>con basta experiencia, respaldo y que con 
+                      toda su entrega cumplirán su mision de dejar su auto como nuevo.
+            </p></br>
+           
+
+        </div></br>
+
+        <div class="servicio" >
+            <h2>Reserva tu visita ahora</h2><br>
+            <img src="{% static 'img/reservas.png' %}"><br>
+            <p><strong>Ahora contamos con un servicio de reserva online habilitado las 24hrs.</strong></p><br>
+            <p>Reserva ahora con nosotros tu lavado hasta una semana antes, puedes cancelar sin ningun costo o pedir una nueva reserva.</p><br>
+                
+            </div> </br>
+
+        <div class="servicio" >
+            <h2>Consultad estado del servicio</h2><br>
+            <img src="{% static 'img/consulta.jpg' %}">
+            <p><strong>Por nuestro compromiso con la transparencia en nuestros servicios</strong></p>
+            <p>Puedes consultar en todo momento como va tu servicio y la persona a cargo de este</p>
+        </div><br>
+      </section>
+
+
+        <section id="clientes" >
+            <h1>Testimonios de Clientes Satisfechos</h1><br>
+            <div>
+                <img src="{% static 'img/cliente1.jpg' %}" alt="" class="imagen"><br>
+                <p>Felipe Gustavo Sanchéz Parra</p><br>
+                <i>
+                    <p>"Estoy contento con el servicio entregado por Lavado de autos Miguel S.A, el servicio fue de
+                        mucha calidad <br>
+                        Venia conduciendo por diversos lugares en mi travesia personal por el mundo y mi auto estaba
+                        quedando irreconocible <br>
+                        y pense que debia detenerme mas tiempo para poder limpiarlo hasta que conoci a Lavado de autos
+                        Miguel S.A <br>
+                        ellos lavaron mi auto dejandolo como nuevo y ahora puedo seguir con mi travesia por este vasto
+                        mundo". </p>
+                </i>
+            </div><br>
+            <div>
+                <img src="{% static 'img/palomo.jpg' %}" alt="" class="imagen"><br>
+                <p>Palomo Puente Alto</p><br>
+                <i>
+                    <p>"Mi auto no relucia de una forma adecuada a la calidad que merece <br>
+                        Venia conduciendo por diversos lugares siendo objeto de comentarios por la gente que rayaba mi auto con su dedo <br>
+                        desde que conoci a WashesCar Mi auto luce irreconocible , el toque de calidad que le impusieron los profesionales de la empresa <br>
+                        fue mágico , mi auto es otro , cada vez que ando por la calle y me preguntan por lo reluciente de mi auto <br/>
+                        Sin duda recomiendo a ¡WashesCar!
+                    </p>
+                      
+            </div><br>
+            <div>
+                <img src="{% static 'img/motociclista.jpg' %}" alt="" class="imagen"><br>
+                <p>Freddy Arturia</p><br>
+                <i>
+                    <p>Por mi forma de vivir extrema, paso por diferentes lugares muy diversos pero no soy yo la victima<br>
+                        Mi motocicleta es la victima se ensucia con barro, tienes raspones y eso es decir poco sin contar todas las veces que he tenido que arreglarla<br>
+                        Por los que mis conocidos me recomendaron el lavado de autos de Miguel y aqui estoy por quinta vez confiandole a quien me acompaña por todo el mundo extremo.<br>
+                    </p>
+            </div><br>
+          </section>
+        
+      {% endblock contenido %}
