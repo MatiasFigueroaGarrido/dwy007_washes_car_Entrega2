@@ -6,11 +6,7 @@ COMO EQUIPO DECIDIMOS HACER LAS PRUEBAS UNITARIAS DE NUESTROS MÉTODOS RELIZADOS
 
 
 
-from django.test import TestCase
-import unittest
-from .models import MisionVision, galeriaImagenes, Insumos
-from django.contrib.auth.models import User
-# Create your tests here.
+
 
 class TestUno(unittest.TestCase):
     def agregarInsumo(self):
