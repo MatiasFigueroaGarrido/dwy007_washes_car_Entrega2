@@ -23,9 +23,11 @@ function ocultar() {
 
 
 
-letras = "abcdefghijklmnñopqrstuvWxyz";
+letras = "abcdefghijklmnñopqrstuvwxyz";
 especiales = "8-37-38-46-164";
 espacio =" ";
+caracteres = "*-_#/\.$,<>^+";
+numeros = "1234567890";
 
 
 function validarRut() {
@@ -134,7 +136,6 @@ function errorConfirmar(e){
   }
 }
 
-contrasenia2 = "";
 
 function confirmarcontrasenia(e){
   key = e.keyCode || e.which;
@@ -142,14 +143,13 @@ function confirmarcontrasenia(e){
   for (var i in especiales){
       if (key==especiales){
           break;
-      } else {
-          contrasenia2 = contrasenia2 + teclado;
+      } else {	  
           primer_contrasenia = document.getElementById("txtContrasena").value;
           var elemento = document.getElementById("Confirmacion");
+	  contrasenia2 = document.getElementById("txtContrasena2").value;
           if (contrasenia2 != primer_contrasenia){
             console.log(elemento.innerHTML)
             elemento.innerHTML = "No coinciden las Contraseñas";
-            alert(contrasenia2);
             break;
           }
           else{
@@ -179,6 +179,30 @@ function sololetras2(e){
       alert("Campo de solo letras");
       return false;
     
+  }
+}
+
+function caracterContrasenia(e){
+  key = e.keyCode || e.which;
+  teclado = String.fromCharCode(key).toLowerCase();
+  teclado_especial = false;
+  caracter = letras + numeros + caracteres;
+  for(var i in especiales){
+    if (key==especiales[i]){
+      teclado_especial=true;
+      break;
+    }
+
+  }
+    
+  if (espacio.indexOf(teclado)!=-1 && !teclado_especial){
+      alert("No se pueden colocar espacios");
+      return false;
+  } 
+  if (caracter.indexOf(teclado)==-1 && !teclado_especial){
+      alert("Solo se permiten letras, números y los siguientes caracteres: " + caracteres);
+      return false;
+      
   }
 }
 
