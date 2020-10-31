@@ -81,13 +81,6 @@ def lista_insumos(request):
     return render(request,'web/admin_insumos.html',{'lista_insumos':insumos})
 
 
-#permisos que se requieren para que el usuario ingrese a la pág
-@login_required(login_url='/login/')
-@permission_required('washescar.add_insumos',login_url='/login/')
-@permission_required('washescar.change',login_url='/login/')
-@permission_required('washescar.delete_insumos',login_url='/login/')
-
-
 #defino formulario ingreso de insumos
 @login_required(login_url='/login/')
 @permission_required('washescar.add_insumos',login_url='/login/')
